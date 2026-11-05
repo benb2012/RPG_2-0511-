@@ -20,22 +20,31 @@ def calcular_dano(ataque, defesa, critico=False):
     Se for um golpe crítico, o dano dobra.
     Exemplos: calcular_dano(18, 3) -> 15    calcular_dano(18, 3, True) -> 30
               calcular_dano(5, 12) -> 1"""
-    # TODO
-    raise NotImplementedError
+    Dano = ataque - defesa
+    if critico == True:
+        Dano * 2
+    if Dano <= 0:
+        Dano = 1
+    return Dano
 
 
 def aplicar_dano(vida, dano):
     """Devolve a vida depois do golpe (nunca fica negativa).
     Exemplos: aplicar_dano(60, 15) -> 45    aplicar_dano(10, 15) -> 0"""
-    # TODO
-    raise NotImplementedError
+    aplicado = vida - dano
+    if aplicado < 0:
+        aplicado = 0
+    return aplicado
+    
 
 
 def curar(vida, vida_max, cura=30):
     """Devolve a vida depois de tomar uma poção (nunca passa de vida_max).
     Exemplos: curar(50, 100) -> 80    curar(90, 100) -> 100"""
-    # TODO
-    raise NotImplementedError
+    vida += cura
+    if vida > vida_max:
+        vida = vida_max
+    return vida
 
 
 def barra_de_vida(vida, vida_max, tamanho=10):
@@ -43,7 +52,7 @@ def barra_de_vida(vida, vida_max, tamanho=10):
         barra_de_vida(60, 100) -> "[######----] 60/100"
     Quantidade de '#':  vida * tamanho // vida_max   (o resto é '-')
     Use um laço for com range(tamanho)."""
-    # TODO
+    
     raise NotImplementedError
 
 
